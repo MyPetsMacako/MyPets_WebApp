@@ -22,9 +22,17 @@ function send (){
         type: "POST",
         url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/adminLogin",
         data: data,
-        success: function (response) {
-            $("$resultado").html(response);
-            console.log(response)
+        success: function(result)
+        {
+            if(result && result.auth_token.length>1) // you should do your checking here
+            {
+                window.location = 'http://www.google.com/'; //just to show that it went through
+            }
+            else
+            {
+                $('#result').empty().addClass('error')
+                    .append('Something is wrong.');
+            }
         }
     });
 }
