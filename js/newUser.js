@@ -5,15 +5,15 @@ $(document).ready(function(){
 })
 
 function get_vars(){
-    var name = document.getElementById("name").value;
-    var surname = document.getElementById("surname").value;
+    var fullname = document.getElementById("fullname").value;
+    var nickname = document.getElementById("nickname").value;
     var email = document.getElementById("email").value;
     var password1 = document.getElementById("password1").value;
     var password2 = document.getElementById("password2").value;
 
     var data = {
-        "name" : name,
-        "surname" : surname,
+        "fullname" : fullname,
+        "nickname" : nickname,
         "email" : email,
         "password1" : password1,
         "password2" : password2
@@ -24,9 +24,6 @@ function get_vars(){
 function verifyPasswords(){
     var password1 = document.getElementById("password1").value;
     var password2 = document.getElementById("password2").value;
-
-    console.log(password1);
-    console.log(password2);
 
     if(password1==password2){
         passMatch = true;

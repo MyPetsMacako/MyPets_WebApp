@@ -24,7 +24,6 @@ function send (){
         url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/adminLogin",
         data: data,
         success:function(response){
-            //console.log(response["token"]);
             window.localStorage.setItem('token', response["token"]);
             location.href ="mainPanel%20-%20home.html";
         },

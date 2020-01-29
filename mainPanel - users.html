@@ -39,9 +39,6 @@
                 outline: none;
             }
             
-            #addUserButton {
-                
-            }
         </style>
 
 
@@ -84,80 +81,13 @@
                                 <th scope="col">id</th>
                                 <th scope="col">Rol</th>
                                 <th scope="col">Baneado</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellidos</th>
+                                <th scope="col">Nombre Completo</th>
+                                <th scope="col">Nickname</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Contraseña</th>
                                 <th scope="col">Opciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>1</td>
-                                <td>No</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>regerg</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            •••
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item text-primary" href="#">Editar</a>
-                                            <a class="dropdown-item text-warning" href="#">Banear</a>
-                                            <a class="dropdown-item text-danger" href="#">Eliminar</a>
-                                            <a class="dropdown-item text-warning" href="#">Degradar a usuario</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>2</td>
-                                <td>No</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@mdo</td>
-                                <td>regrgerg</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            •••
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item text-primary" href="#">Editar</a>
-                                            <a class="dropdown-item text-warning" href="#">Banear</a>
-                                            <a class="dropdown-item text-danger" href="#">Eliminar</a>
-                                            <a class="dropdown-item text-warning" href="#">Ascender a admin</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>2</td>
-                                <td>No</td>
-                                <td>Phillip</td>
-                                <td>Northon</td>
-                                <td>@mdo</td>
-                                <td>fergergerg</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            •••
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item text-primary" href="#">Editar</a>
-                                            <a class="dropdown-item text-warning" href="#">Banear</a>
-                                            <a class="dropdown-item text-danger" href="#">Eliminar</a>
-                                            <a class="dropdown-item text-warning" href="#">Ascender a admin</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tbody id="tableData">
                         </tbody>
                     </table>
                 </div>
@@ -179,4 +109,6 @@
             });
         </script>
 
-    </body></html>
+    </body>
+    <script src="js/usersTable.js" type="application/javascript"></script>
+    </html>
