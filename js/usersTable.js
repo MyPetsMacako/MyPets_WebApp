@@ -95,7 +95,7 @@ function createTable (data){
                 a2.innerHTML = "Eliminar";
 
                 var a3 = document.createElement("a");
-                a3.setAttribute("class", "dropdown-item text-warning");
+                a3.setAttribute("class", "dropdown-item text-success");
                 a3.setAttribute("href", "#");
                 a3.innerHTML = "Degradar";
                 
