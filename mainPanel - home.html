@@ -18,6 +18,23 @@
 
     <script src="https://kit.fontawesome.com/df17e0efd7.js" crossorigin="anonymous"></script>
 
+    <script>
+        window.onload = function() {
+            const monthNames = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+            "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+];
+
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(monthNames[today.getMonth()]); //January is 0! monthNames[d.getMonth()]
+            var yyyy = today.getFullYear();
+
+            today = dd + ' de ' + mm + ' de ' + yyyy;
+
+            document.getElementById('date').innerHTML = "Hoy es "+today;
+        };
+    </script>
+
     <style>
         .bg-1 {
             background-color: #4BAFDA;
@@ -61,7 +78,7 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <h1 class="mt-4">Bienvenido, Nombre Admin</h1>
-                <h2 class="mt-2">Hoy es fecha de hoy</h2>
+                <h2 id="date" class="mt-2">Hoy es fecha de hoy</h2>
                 <h3 class="mt-2">Resumen:</h3>
                 <div class="container">
 

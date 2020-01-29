@@ -16,16 +16,23 @@ function get_vars(){
 
 
 
+
 function send (){
     var data = get_vars();
     $.ajax({
         type: "POST",
         url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/adminLogin",
         data: data,
-        success: function (response) {
-            $("$resultado").html(response);
-            console.log(response)
+        success:function(response){
+            //console.log(response["token"]);
+            window.localStorage.setItem('token', response["token"]);
+            location.href ="mainPanel%20-%20home.html";
+        },
+        error: function(result) {
+            document.getElementById('warning').style.display = 'block';
+            document.getElementById('warning').innerHTML = result.responseJSON.message;
         }
+
     });
 }
 

@@ -17,7 +17,13 @@
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-    <script>document.getElementById("warning").style.display = 'none'</script>
+    <script>
+        window.onload = function() {
+        document.getElementById('warning').style.display = 'none';
+        };
+    </script>
+
+    <!-- <script>document.getElementById("warning").style.visibility = "hidden"</script> -->
     
     <style type="text/css">
         .login-form {
@@ -76,6 +82,6 @@
     </div>
 </body>
     
-    <script src="./app.js" type="application/javascript"></script>
+    <script src="js/login.js" type="application/javascript"></script>
     
 </html>                                		                            
