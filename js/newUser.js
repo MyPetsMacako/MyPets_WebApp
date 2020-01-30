@@ -55,6 +55,9 @@ function send (){
                 document.getElementById('warning').style.display = 'block';
                 document.getElementById("warning").className = "text-success";
                 document.getElementById('warning').innerHTML = "Usuario registrado correctamente";
+                setTimeout(function () {
+                    window.location.href="mainPanel%20-%20users.html";
+                 }, 3000);
             },
             error: function(result) {
                 document.getElementById('warning').style.display = 'block';

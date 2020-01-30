@@ -53,10 +53,10 @@
                 <div class="sidebar-heading">MyPets | Admin</div>
                 <div class="list-group list-group-flush">
                     <a href="mainPanel%20-%20home.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-home"></i> Home</a>
-                    <a href="mainPanel%20-%20users.html" class="list-group-item list-group-item-action bg-light text-primary"><i class="fas fa-users"></i> Usuarios</a>
+                    <a href="mainPanel%20-%20users.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users"></i> Usuarios</a>
                     <a href="mainPanel - pets.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-paw"></i> Mascotas</a>
                     <a href="mainPanel%20-%20qr.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-qrcode"></i> Ajustes QR</a>
-                    <a href="mainPanel - apointments.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-calendar"></i> Citas</a>
+                    <a href="mainPanel - apointments.html" class="list-group-item list-group-item-action bg-light text-primary"><i class="fas fa-calendar"></i> Citas</a>
                     <a href="mainPanel%20-%20gallery.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-images"></i> Galería</a>
                     <a href="mainPanel%20-%20reports.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-flag"></i> Reportes</a>
                     <a href="index.html" class="list-group-item list-group-item-action bg-light text-danger"><i class="fas fa-times-circle"></i> Cerrar sesión</a>
@@ -69,10 +69,9 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <h1 class="mt-4">Lista de usuarios registrados:</h1>
+                            <h1 class="mt-4">Lista de citas registradas:</h1>
                         </div>
                         <div class="form-group col-md-6 d-flex justify-content-end align-items-center">
-                            <button id="addUserButton" onclick="window.location.href = 'mainPanel%20-%20new-user.html';" type="submit" class="btn btn-primary">Añadir usuario</button>
                         </div>
                     </div>
 
@@ -81,11 +80,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Baneado</th>
-                                <th scope="col">Nombre Completo</th>
-                                <th scope="col">Nickname</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">id del usuario</th>
+                                <th scope="col">id de la mascota</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Descripción</th>
                                 <th scope="col">Opciones</th>
                             </tr>
                         </thead>
