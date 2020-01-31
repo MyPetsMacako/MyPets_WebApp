@@ -11,7 +11,7 @@ function getData (){
     $token = window.localStorage.getItem("token");
     $.ajax({
         type: "GET",
-        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/showUsersData",
+        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/showPetsData",
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", $token);
         },
@@ -32,52 +32,33 @@ function createTable (data){
         lista = document.getElementById("tableData");
                 var tr = document.createElement("tr");
                 var columna1 = document.createElement("th")
-                var userid = data[i]["id"];
                 columna1.innerHTML = data[i]["id"];
-                //columna1.setAttribute("onclick", "showId(id)");
                 var columna2 = document.createElement("th")
-                switch (data[i]["role_id"]) {
-                    case 1:
-                        columna2.innerHTML = "Admin";
-                    break;
-                    case 2:
-                        columna2.innerHTML = "User";
-                        break;
-                
-                    default:
-                        columna2.innerHTML = "error";
-                        break;
-                }
-                //columna2.innerHTML = data[i]["role_id"];
+                columna2.innerHTML = data[i]["user_id"];
                 var columna3 = document.createElement("th")
-                var banState = data[i]["isBanned"];
-                switch (data[i]["isBanned"]) {
-                    case 0:
-                        columna3.innerHTML = "No";
-                    break;
-                    case 1:
-                        columna3.innerHTML = "Si";
-                        break;
-                
-                    default:
-                        columna3.innerHTML = "error";
-                        break;
-                }
-                //columna3.innerHTML = data[i]["isBanned"];
+                columna3.innerHTML = data[i]["name"];
                 var columna4 = document.createElement("th")
-                columna4.innerHTML = data[i]["fullName"];
+                columna4.innerHTML = data[i]["species"];
                 var columna5 = document.createElement("th")
-                columna5.innerHTML = data[i]["nickname"];
+                columna5.innerHTML = data[i]["breed"];
                 var columna6 = document.createElement("th")
-                columna6.innerHTML = data[i]["email"];
-                var columna7 = document.createElement("button")
-                columna7.innerHTML = "•••";
-                columna7.setAttribute("class", "btn btn-info dropdown-toggle");
-                columna7.setAttribute("type", "button");
-                columna7.setAttribute("id", "dropdownMenuButton");
-                columna7.setAttribute("data-toggle", "dropdown");
-                columna7.setAttribute("aria-haspopup", "true");
-                columna7.setAttribute("aria-expanded", "false");
+                columna6.innerHTML = data[i]["weight"];
+                var columna7 = document.createElement("th")
+                columna7.innerHTML = data[i]["colour"];
+                var columna8 = document.createElement("th")
+                columna8.innerHTML = data[i]["birth_date"];
+                var columna9 = document.createElement("th")
+                columna9.innerHTML = data[i]["photo"];
+                var columna10 = document.createElement("th")
+                columna10.innerHTML = data[i]["documents"];
+                var columna11 = document.createElement("button")
+                columna11.innerHTML = "•••";
+                columna11.setAttribute("class", "btn btn-info dropdown-toggle");
+                columna11.setAttribute("type", "button");
+                columna11.setAttribute("id", "dropdownMenuButton");
+                columna11.setAttribute("data-toggle", "dropdown");
+                columna11.setAttribute("aria-haspopup", "true");
+                columna11.setAttribute("aria-expanded", "false");
 
                 var div = document.createElement("div");
                 div.setAttribute("class", "dropdown-menu");
@@ -103,12 +84,12 @@ function createTable (data){
                         a1.innerHTML = "error";
                         break;
                 }
-                a1.setAttribute('onclick', 'ban('+userid+')');
+                //a1.setAttribute('onclick', 'ban('+userid+')');
                 
                 var a2 = document.createElement("a");
                 a2.setAttribute("class", "dropdown-item text-danger");
                 a2.setAttribute("href", "#");
-                a2.setAttribute('onclick', 'destroy('+userid+')');
+                //a2.setAttribute('onclick', 'destroy('+userid+')');
                 a2.innerHTML = "Eliminar";
 
                 var a3 = document.createElement("a");
@@ -127,7 +108,7 @@ function createTable (data){
                         a3.innerHTML = "error";
                         break;
                 }
-                a3.setAttribute('onclick', 'role('+userid+')');
+                //a3.setAttribute('onclick', 'role('+userid+')');
                 //a3.innerHTML = "Degradar";
                 
 
@@ -139,7 +120,11 @@ function createTable (data){
                 tr.appendChild(columna5);
                 tr.appendChild(columna6);
                 tr.appendChild(columna7);
-                columna7.appendChild(div);
+                tr.appendChild(columna8);
+                tr.appendChild(columna9);
+                tr.appendChild(columna10);
+                tr.appendChild(columna11);
+                columna11.appendChild(div);
                 div.appendChild(a);
                 div.appendChild(a1);
                 div.appendChild(a2);
@@ -147,7 +132,7 @@ function createTable (data){
     }
 }
 
-function destroy(userid) {
+/*function destroy(userid) {
     console.log(userid)
 
     $.ajax({
@@ -168,7 +153,7 @@ function destroy(userid) {
     });
 }
 
-function ban(userid) {
+ function ban(userid) {
     console.log(userid)
 
     $.ajax({
@@ -208,8 +193,4 @@ function role(userid) {
         }
 
     });
-}
-
-
-
-
+} */

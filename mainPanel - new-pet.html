@@ -62,8 +62,10 @@
                 <div class="sidebar-heading">MyPets | Admin</div>
                 <div class="list-group list-group-flush">
                     <a href="mainPanel%20-%20home.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-home"></i> Home</a>
-                    <a href="mainPanel%20-%20users.html" class="list-group-item list-group-item-action bg-light text-primary"><i class="fas fa-users"></i> Usuarios</a>
+                    <a href="mainPanel%20-%20users.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users"></i> Usuarios</a>
+                    <a href="mainPanel - pets.html" class="list-group-item list-group-item-action bg-light text-primary"><i class="fas fa-paw"></i> Mascotas</a>
                     <a href="mainPanel%20-%20qr.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-qrcode"></i> Ajustes QR</a>
+                    <a href="mainPanel - apointments.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-calendar"></i> Citas</a>
                     <a href="mainPanel%20-%20gallery.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-images"></i> Galería</a>
                     <a href="mainPanel%20-%20reports.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-flag"></i> Reportes</a>
                     <a href="index.html" class="list-group-item list-group-item-action bg-light text-danger"><i class="fas fa-times-circle"></i> Cerrar sesión</a>
@@ -75,47 +77,65 @@
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     <button id="backButton" onclick="window.location.href = 'mainPanel%20-%20pets.html';" type="submit" class="btn btn-primary">Volver</button>
-                    <h1 class="mt-4">Registrar nuevo usuario:</h1>
+                    <h1 class="mt-4">Registrar nueva mascota:</h1>
                     <!-- <form> -->
                         <div class="container">
+                                <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="font-semi-white">id del usuario</label>
+                                            <input id="user_id" name="user_id" type="number" class="form-control" placeholder="id del dueño" required>
+                                        </div>
+                                    </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="font-semi-white">Nombre</label>
-                                    <input id="fullname" name="fullname" type="text" class="form-control" placeholder="Nombre y apellidos" required>
+                                    <input id="name" name="name" type="text" class="form-control" placeholder="Nombre de la mascota" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-semi-white">Especie</label>
-                                    <input id="nickname" name="nickname" type="text" class="form-control" placeholder="Nickname" required>
+                                        <label for="inputState">Especie</label>
+                                        <select id="selectedOption" class="form-control">
+                                          <option id="selectedOption" selected>Selecciona una especie...</option>
+                                          <option>Perro</option>
+                                          <option>Gato</option>
+                                          <option>Roedor</option>
+                                          <option>Ave</option>
+                                          <option>Reptil</option>
+                                        </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="font-semi-white">Raza</label>
-                                    <input id="fullname" name="fullname" type="text" class="form-control" placeholder="Nombre y apellidos" required>
+                                    <label class="font-semi-white">Tipo</label>
+                                    <input id="breed" name="breed" type="text" class="form-control" placeholder="Tipo de animal" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-semi-white">Color</label>
-                                    <input id="nickname" name="nickname" type="text" class="form-control" placeholder="Nickname" required>
+                                    <input id="colour" name="colour" type="text" class="form-control" placeholder="Color" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="font-semi-white">Peso</label>
-                                    <input id="fullname" name="fullname" type="text" class="form-control" placeholder="Nombre y apellidos" required>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">kg</div>
+                                        </div>
+                                        <input id="weight" type="number" class="form-control" id="inlineFormInputGroup" placeholder="Peso">
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-semi-white">Fecha de nacimiento</label>
-                                    <input id="nickname" name="nickname" type="text" class="form-control" placeholder="Nickname" required>
+                                    <input id="birth" name="birth" type="text" class="form-control" placeholder="AAAA-MM-DD" required> 
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="font-semi-white">Foto</label>
-                                    <input id="fullname" name="fullname" type="text" class="form-control" placeholder="Nombre y apellidos" required>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-semi-white">Documentos</label>
-                                    <input id="nickname" name="nickname" type="text" class="form-control" placeholder="Nickname" required>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                 </div>
                             </div>
                         </div>
@@ -146,5 +166,5 @@
         </script>
 
     </body>
-    <script src="js/newUser.js" type="application/javascript"></script>
+    <script src="js/newPet.js" type="application/javascript"></script>
     </html>
