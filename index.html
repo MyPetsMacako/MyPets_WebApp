@@ -83,5 +83,21 @@
 </body>
     
     <script src="js/login.js" type="application/javascript"></script>
+    <script>
+        var inputEmail = document.getElementById("email");
+        inputEmail.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+        var inputPass = document.getElementById("password");
+        inputPass.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+    </script>
     
 </html>                                		                            

@@ -1,27 +1,16 @@
 $(document).ready(function(){
     url_base = 'http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php'
     document.getElementById("button").onclick = required;
-    var passMatch = false;
 })
 
 function get_vars(){
-    var user_id = document.getElementById("user_id").value;
-    var name = document.getElementById("name").value;
-    var selectedOption = document.getElementById("selectedOption");
-    var strSelectedOption = selectedOption.options[selectedOption.selectedIndex].value;
-    var breed = document.getElementById("breed").value;
-    var colour = document.getElementById("colour").value;
-    var weight = document.getElementById("weight").value;
-    var birth = document.getElementById("birth").value;
+    var dateTime = document.getElementById("dateTime").value;
+    var description = document.getElementById("description").value;
 
     var data = {
-        "user_id" : user_id,
-        "name" : name,
-        "species" : strSelectedOption,
-        "breed" : breed,
-        "colour" : colour,
-        "weight" : weight,
-        "birth_date" : birth
+        "pet_id" : "1",
+        "dateTime" : dateTime,
+        "description" : description
     }
     return data;
 }
@@ -32,7 +21,7 @@ function send (){
     $token = window.localStorage.getItem("token");
     $.ajax({
         type: "POST",
-        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/adminPetsRegister",
+        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/appointmentRegister",
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", $token);
         },
@@ -42,7 +31,7 @@ function send (){
             document.getElementById("warning").className = "text-success";
             document.getElementById('warning').innerHTML = "Usuario registrado correctamente";
             setTimeout(function () {
-                window.location.href="mainPanel%20-%20pets.html";
+                window.location.href="mainPanel%20-%20apointments.html";
                 }, 3000);
         },
         error: function(result) {
@@ -59,7 +48,7 @@ function send (){
 
 function required(){
     var data = get_vars();
-    if (data["name"] == "" || data["species"] == "" || data["breed"] == "" || data["colour"] == "" || data["weight"] == ""){
+    if (data["description"] == ""){
         alert("Completa todos los campos");
         return;
     } else {

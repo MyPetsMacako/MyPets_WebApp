@@ -83,7 +83,7 @@
                                 <div class="row">
                                         <div class="form-group col-md-6">
                                             <label class="font-semi-white">id del usuario</label>
-                                            <input id="user_id" name="user_id" type="number" class="form-control" placeholder="id del dueño" required>
+                                            <input id="user_id" name="user_id" type="number" class="form-control" placeholder="Si se deja vacio se establecerá la id del usuario logeado" required>
                                         </div>
                                     </div>
                             <div class="row">
@@ -118,14 +118,14 @@
                                     <label class="font-semi-white">Peso</label>
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text">kg</div>
+                                            <div class="input-group-text">Kg</div>
                                         </div>
                                         <input id="weight" type="number" class="form-control" id="inlineFormInputGroup" placeholder="Peso">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-semi-white">Fecha de nacimiento</label>
-                                    <input id="birth" name="birth" type="text" class="form-control" placeholder="AAAA-MM-DD" required> 
+                                    <input id="birth" name="birth" type="date" class="form-control" placeholder="AAAA-MM-DD" required> 
                                 </div>
                             </div>
                             <div class="row">
@@ -167,4 +167,41 @@
 
     </body>
     <script src="js/newPet.js" type="application/javascript"></script>
+    <script>
+        var inputUserId = document.getElementById("user_id");
+        inputUserId.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+        var inputName = document.getElementById("name");
+        inputName.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+        var inputBreed = document.getElementById("breed");
+        inputBreed.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+        var inputColour = document.getElementById("colour");
+        inputColour.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+        var inputWeight = document.getElementById("weight");
+        inputWeight.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+    </script>
     </html>

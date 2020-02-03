@@ -1,6 +1,6 @@
 $(document).ready(function(){
     url_base = 'http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php'
-    document.getElementById("button").onclick = send;
+    document.getElementById("button").onclick = required;
     var passMatch = false;
 })
 
@@ -72,4 +72,14 @@ function send (){
         document.getElementById('warning').innerHTML = result.responseJSON.message;
     }
     
+}
+
+function required(){
+    var data = get_vars();
+    if (data["fullname"] == "" || data["nickname"] == "" || data["email"] == "" || data["password1"] == "" || data["password2"] == ""){
+        alert("Completa todos los campos");
+        return;
+    } else {
+        send ()
+    }
 }

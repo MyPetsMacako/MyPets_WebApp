@@ -32,6 +32,7 @@ function createTable (data){
         lista = document.getElementById("tableData");
                 var tr = document.createElement("tr");
                 var columna1 = document.createElement("th")
+                var petid = data[i]["id"];
                 columna1.innerHTML = data[i]["id"];
                 var columna2 = document.createElement("th")
                 columna2.innerHTML = data[i]["user_id"];
@@ -69,48 +70,16 @@ function createTable (data){
                 a.innerHTML = "Editar";
 
                 var a1 = document.createElement("a");
-                a1.setAttribute("class", "dropdown-item text-warning");
-                a1.setAttribute("href", "#");
-
-                switch (data[i]["isBanned"]) {
-                    case 0:
-                        a1.innerHTML = "Banear";
-                    break;
-                    case 1:
-                        a1.innerHTML = "Desbanear";
-                        break;
-                
-                    default:
-                        a1.innerHTML = "error";
-                        break;
-                }
-                //a1.setAttribute('onclick', 'ban('+userid+')');
+                a1.setAttribute("class", "dropdown-item text-danger");
+                a1.setAttribute('onclick', 'destroy('+petid+')');
+                a1.innerHTML = "Eliminar";
                 
                 var a2 = document.createElement("a");
-                a2.setAttribute("class", "dropdown-item text-danger");
-                a2.setAttribute("href", "#");
-                //a2.setAttribute('onclick', 'destroy('+userid+')');
-                a2.innerHTML = "Eliminar";
-
-                var a3 = document.createElement("a");
-                a3.setAttribute("class", "dropdown-item text-success");
-                a3.setAttribute("href", "#");
-
-                switch (data[i]["role_id"]) {
-                    case 1:
-                        a3.innerHTML = "Degradar";
-                    break;
-                    case 2:
-                        a3.innerHTML = "Ascender";
-                        break;
-                
-                    default:
-                        a3.innerHTML = "error";
-                        break;
-                }
-                //a3.setAttribute('onclick', 'role('+userid+')');
-                //a3.innerHTML = "Degradar";
-                
+                a2.setAttribute("class", "dropdown-item text-success");
+                //a2.setAttribute("href", "mainPanel - new-apointment.html");
+                a2.setAttribute("onclick", "window.location.href = 'mainPanel - new-apointment.html'");
+                //a2.setAttribute('onclick', 'destroy('+petid+')');
+                a2.innerHTML = "Añadir cita";
 
                 lista.appendChild(tr);
                 tr.appendChild(columna1);
@@ -126,24 +95,23 @@ function createTable (data){
                 tr.appendChild(columna11);
                 columna11.appendChild(div);
                 div.appendChild(a);
-                div.appendChild(a1);
-                div.appendChild(a2);
-                div.appendChild(a3);         
+                div.appendChild(a1);  
+                div.appendChild(a2); 
     }
 }
 
-/*function destroy(userid) {
-    console.log(userid)
+function destroy(petid) {
+    console.log(petid)
 
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/deleteUser/"+userid,
+        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/deletePet/"+petid,
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", $token);
         },
         success:function(response){
             //alert("Usuario eliminado correctamente");
-            if(alert("Usuario eliminado correctamente")){}
+            if(alert("Mascota eliminada correctamente")){}
             else    window.location.reload(); 
         },
         error: function(result) {
@@ -152,45 +120,3 @@ function createTable (data){
 
     });
 }
-
- function ban(userid) {
-    console.log(userid)
-
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/ban/"+userid,
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", $token);
-        },
-        success:function(response){
-            //alert("Usuario eliminado correctamente");
-            if(alert("Acción completada con éxito")){}
-            else    window.location.reload(); 
-        },
-        error: function(result) {
-            console.log("error")
-        }
-
-    });
-}
-
-function role(userid) {
-    console.log(userid)
-
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/role/"+userid,
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", $token);
-        },
-        success:function(response){
-            //alert("Usuario eliminado correctamente");
-            if(alert("Acción completada con éxito")){}
-            else    window.location.reload(); 
-        },
-        error: function(result) {
-            console.log("error")
-        }
-
-    });
-} */

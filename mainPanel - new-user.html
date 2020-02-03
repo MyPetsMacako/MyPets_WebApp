@@ -135,4 +135,42 @@
 
     </body>
     <script src="js/newUser.js" type="application/javascript"></script>
+    
+    <script>
+        var inputFullName = document.getElementById("fullname");
+        inputFullName.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+        var inputNickname = document.getElementById("nickname");
+        inputNickname.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+        var inputEmail = document.getElementById("email");
+        inputEmail.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+        var inputPassword1 = document.getElementById("password1");
+        inputPassword1.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+        var inputPassword2 = document.getElementById("password2");
+        inputPassword2.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("button").click();
+        }
+        });
+    </script>
     </html>

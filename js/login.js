@@ -1,6 +1,6 @@
 $(document).ready(function(){
     url_base = 'http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php'
-    document.getElementById("button").onclick = send;
+    document.getElementById("button").onclick = required;
 })
 
 function get_vars(){
@@ -13,9 +13,6 @@ function get_vars(){
     }
     return data;
 }
-
-
-
 
 function send (){
     var data = get_vars();
@@ -33,5 +30,15 @@ function send (){
         }
 
     });
+}
+
+function required(){
+    var data = get_vars();
+    if (data["email"] == "" || data["password"] == ""){
+        alert("Completa todos los campos");
+        return;
+    } else {
+        send ()
+    }
 }
 
