@@ -32,7 +32,7 @@ function send (){
     $token = window.localStorage.getItem("token");
     $.ajax({
         type: "POST",
-        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/adminPetsRegister",
+        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/petsRegister",
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", $token);
         },

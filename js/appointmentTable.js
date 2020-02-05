@@ -57,7 +57,7 @@ function createTable (data){
 
                 var a1 = document.createElement("a");
                 a1.setAttribute("class", "dropdown-item text-danger");
-                //a1.setAttribute('onclick', 'destroy('+petid+')');
+                a1.setAttribute('onclick', 'destroy('+appointmentid+')');
                 a1.innerHTML = "Eliminar";
 
                 lista.appendChild(tr);
@@ -72,18 +72,18 @@ function createTable (data){
     }
 }
 
-/*function destroy(petid) {
-    console.log(petid)
+function destroy(appointmentid) {
+    console.log(appointmentid)
 
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/deletePet/"+petid,
+        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/deleteAppointment/"+appointmentid,
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", $token);
         },
         success:function(response){
             //alert("Usuario eliminado correctamente");
-            if(alert("Mascota eliminada correctamente")){}
+            if(alert("Cita eliminada correctamente")){}
             else    window.location.reload(); 
         },
         error: function(result) {
@@ -91,4 +91,4 @@ function createTable (data){
         }
 
     });
-}*/
+}
