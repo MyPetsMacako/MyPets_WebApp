@@ -76,9 +76,8 @@ function createTable (data){
                 
                 var a2 = document.createElement("a");
                 a2.setAttribute("class", "dropdown-item text-success");
-                //a2.setAttribute("href", "mainPanel - new-apointment.html");
-                a2.setAttribute("onclick", "window.location.href = 'mainPanel - new-apointment.html'");
-                //a2.setAttribute('onclick', 'destroy('+petid+')');
+                //a2.setAttribute("onclick", "window.location.href = 'mainPanel - new-apointment.html'");
+                a2.setAttribute('onclick', 'newAppointment('+petid+')');
                 a2.innerHTML = "Añadir cita";
 
                 lista.appendChild(tr);
@@ -119,4 +118,12 @@ function destroy(petid) {
         }
 
     });
+}
+
+function newAppointment(petid) {
+    console.log(petid)
+
+    window.localStorage.setItem('RequestedPetId', petid);
+
+    window.location.href = 'mainPanel - new-apointment.html'
 }

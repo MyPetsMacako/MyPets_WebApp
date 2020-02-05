@@ -40,7 +40,7 @@ function send (){
         success:function(response){
             document.getElementById('warning').style.display = 'block';
             document.getElementById("warning").className = "text-success";
-            document.getElementById('warning').innerHTML = "Usuario registrado correctamente";
+            document.getElementById('warning').innerHTML = "Mascota registrada correctamente";
             setTimeout(function () {
                 window.location.href="mainPanel%20-%20pets.html";
                 }, 3000);

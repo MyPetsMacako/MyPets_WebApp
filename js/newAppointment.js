@@ -3,13 +3,18 @@ $(document).ready(function(){
     document.getElementById("button").onclick = required;
 })
 
+//var pet_id = window.localStorage.getItem("RequestedPetId");
+
 function get_vars(){
+
+var pet_id = window.localStorage.getItem("RequestedPetId");
     var dateTime = document.getElementById("dateTime").value;
+    console.log(dateTime)
     var description = document.getElementById("description").value;
 
     var data = {
-        "pet_id" : "1",
-        "dateTime" : dateTime,
+        "pet_id" : pet_id,
+        "date" : dateTime,
         "description" : description
     }
     return data;
@@ -29,7 +34,7 @@ function send (){
         success:function(response){
             document.getElementById('warning').style.display = 'block';
             document.getElementById("warning").className = "text-success";
-            document.getElementById('warning').innerHTML = "Usuario registrado correctamente";
+            document.getElementById('warning').innerHTML = "Cita registrada correctamente";
             setTimeout(function () {
                 window.location.href="mainPanel%20-%20apointments.html";
                 }, 3000);
