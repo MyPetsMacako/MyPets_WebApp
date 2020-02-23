@@ -3,6 +3,7 @@ $(document).ready(function(){
     //document.getElementById("table").onclick = send;
     //window.onload = send;
     var data = [];
+    localStorage.setItem('RequestedView', 'create');
 })
 
 getData();
@@ -16,18 +17,18 @@ function getData (){
             xhr.setRequestHeader("Authorization", $token);
         },
         success:function(data){
-            console.log("success");
+            console.log("Datos obtenidos");
             createTable(data)
         },
         error: function(result) {
-            console.log("error");
+            console.log("Error en la obtención de datos");
         }
 
     });
 }
 
 function createTable (data){
-    console.log("creando tabla...");
+    console.log("Creando tabla...");
     for(var i=0; i<data.length; i++){
         lista = document.getElementById("tableData");
                 var tr = document.createElement("tr");
@@ -86,6 +87,7 @@ function createTable (data){
                 a.setAttribute("class", "dropdown-item text-primary");
                 a.setAttribute("href", "#");
                 a.innerHTML = "Editar";
+                a.setAttribute('onclick', 'editUser('+userid+')');
 
                 var a1 = document.createElement("a");
                 a1.setAttribute("class", "dropdown-item text-warning");
@@ -145,6 +147,7 @@ function createTable (data){
                 div.appendChild(a2);
                 div.appendChild(a3);         
     }
+    console.log("Tabla creada");
 }
 
 function destroy(userid) {
@@ -208,6 +211,14 @@ function role(userid) {
         }
 
     });
+}
+
+function editUser(userid) {
+    
+    window.localStorage.setItem('RequestedUserId', userid);
+    window.localStorage.setItem('RequestedView', "edit");
+
+    window.location.href = 'mainPanel - new-user.html'
 }
 
 

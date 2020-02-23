@@ -3,6 +3,7 @@ $(document).ready(function(){
     //document.getElementById("table").onclick = send;
     //window.onload = send;
     var data = [];
+    localStorage.setItem('RequestedView', 'create');
 })
 
 getData();
@@ -68,6 +69,7 @@ function createTable (data){
                 a.setAttribute("class", "dropdown-item text-primary");
                 a.setAttribute("href", "#");
                 a.innerHTML = "Editar";
+                a.setAttribute('onclick', 'editPet('+petid+')');
 
                 var a1 = document.createElement("a");
                 a1.setAttribute("class", "dropdown-item text-danger");
@@ -126,4 +128,11 @@ function newAppointment(petid) {
     window.localStorage.setItem('RequestedPetId', petid);
 
     window.location.href = 'mainPanel - new-apointment.html'
+}
+
+function editPet(petid) {
+    window.localStorage.setItem('RequestedPetId', petid);
+    window.localStorage.setItem('RequestedView', "edit");
+
+    window.location.href = 'mainPanel - new-pet.html'
 }
