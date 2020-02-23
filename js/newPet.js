@@ -51,7 +51,7 @@ function get_edit_vars(){
         "name" : name,
         "species" : strSelectedOption,
         "breed" : breed,
-        "color" : colour,
+        "colour" : colour,
         "weight" : weight,
         "birth_date" : birth
     }
@@ -61,6 +61,7 @@ function get_edit_vars(){
 
 function send (){
     var data = get_vars();
+    print(data)
     $token = window.localStorage.getItem("token");
     $.ajax({
         type: "POST",
@@ -91,10 +92,9 @@ function send (){
 function edit(){
     var data = get_edit_vars();
     $token = window.localStorage.getItem("token");
-    console.log($token);
         $.ajax({
             type: "POST",
-            url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/adminUpdatePets/"+$requestedUserId,
+            url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/updatePetsForAdmin/"+$requestedPetId,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", $token);
             },
@@ -102,9 +102,9 @@ function edit(){
             success:function(response){
                 document.getElementById('warning').style.display = 'block';
                 document.getElementById("warning").className = "text-success";
-                document.getElementById('warning').innerHTML = "Mascota actualizado correctamente";
+                document.getElementById('warning').innerHTML = "Mascota actualizada correctamente";
                 setTimeout(function () {
-                    window.location.href="mainPanel%20-%20users.html";
+                    window.location.href="mainPanel%20-%20pets.html";
                  }, 3000);
             },
             error: function(result) {
@@ -131,7 +131,7 @@ function required(){
             alert("Completa todos los campos");
             return;
         } else {
-            send()
+            edit()
         }
     } else {
         console.log("Button Create");
@@ -139,7 +139,7 @@ function required(){
             alert("Completa todos los campos");
             return;
         } else {
-            edit()
+            send()
         }
     }
 }
@@ -158,12 +158,13 @@ function getRequestedData($requestedUserId){
     $token = window.localStorage.getItem("token");
     $.ajax({
         type: "GET",
-        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/requestedPetInfo/"+$requestedUserId,
+        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/adminRequestedPetInfo/"+$requestedUserId,
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", $token);
         },
         success:function(data){
             console.log("Datos obtenidos");
+            console.log(data)
             fillTextFields(data)
         },
         error: function(result) {
@@ -175,11 +176,39 @@ function getRequestedData($requestedUserId){
 
 function fillTextFields(data){
     document.getElementById('name').value = data["name"];
+    $selectValue = "";
+    switch (data["species"]) {
+        
+        case "Perro":
+            $selectValue = "1";
+            break;
+
+        case "Gato":
+            $selectValue = "2";
+            break;
+
+        case "Roedor":
+            $selectValue = "3";
+            break;
+        
+        case "Ave":
+            $selectValue = "4";
+            break;
+        
+        case "Reptil":
+            $selectValue = "5";
+            break;
+    
+        default:
+            $selectValue = "1";
+            break;
+    }
     //Picker
+    document.getElementById("selectedOption").selectedIndex = $selectValue;
     document.getElementById('breed').value = data["breed"];
-    document.getElementById('colour').value = data["colour"];
+    document.getElementById('colour').value = data["color"];
     document.getElementById('weight').value = data["weight"];
-    document.getElementById('birth').value = data["birth"];
+    document.getElementById('birth').value = data["birth_date"];
     
 }
 

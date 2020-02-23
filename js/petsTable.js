@@ -46,7 +46,7 @@ function createTable (data){
                 var columna6 = document.createElement("th")
                 columna6.innerHTML = data[i]["weight"];
                 var columna7 = document.createElement("th")
-                columna7.innerHTML = data[i]["colour"];
+                columna7.innerHTML = data[i]["color"];
                 var columna8 = document.createElement("th")
                 columna8.innerHTML = data[i]["birth_date"];
                 var columna9 = document.createElement("th")
