@@ -37,7 +37,7 @@ function createTable (data){
                 var columna3 = document.createElement("th")
                 columna3.innerHTML = data[i]["date"];
                 var columna4 = document.createElement("th")
-                columna4.innerHTML = data[i]["description"];
+                columna4.innerHTML = data[i]["title"];
                 var columna5 = document.createElement("button")
                 columna5.innerHTML = "•••";
                 columna5.setAttribute("class", "btn btn-info dropdown-toggle");
@@ -50,10 +50,7 @@ function createTable (data){
                 var div = document.createElement("div");
                 div.setAttribute("class", "dropdown-menu");
                 div.setAttribute("aria-labelledby", "dropdownMenuButton");
-                var a = document.createElement("a");
-                a.setAttribute("class", "dropdown-item text-primary");
-                a.setAttribute("href", "#");
-                a.innerHTML = "Editar";
+                
 
                 var a1 = document.createElement("a");
                 a1.setAttribute("class", "dropdown-item text-danger");
@@ -67,7 +64,6 @@ function createTable (data){
                 tr.appendChild(columna4);
                 tr.appendChild(columna5);
                 columna5.appendChild(div);
-                div.appendChild(a);
                 div.appendChild(a1);
     }
 }

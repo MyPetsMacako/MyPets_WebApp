@@ -15,7 +15,7 @@ var pet_id = window.localStorage.getItem("RequestedPetId");
     var data = {
         "pet_id" : pet_id,
         "date" : dateTime,
-        "description" : description
+        "title" : description
     }
     return data;
 }
@@ -26,7 +26,7 @@ function send (){
     $token = window.localStorage.getItem("token");
     $.ajax({
         type: "POST",
-        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/appointmentRegister",
+        url: "http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php/api/createAppointment",
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", $token);
         },

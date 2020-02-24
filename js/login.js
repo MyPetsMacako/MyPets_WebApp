@@ -1,6 +1,9 @@
 $(document).ready(function(){
     url_base = 'http://localhost:8888/laravel-ivanodp/MyPets_API/public/index.php'
     document.getElementById("button").onclick = required;
+    
+    $token = window.localStorage.getItem("token");
+    console.log("token: "+$token);
 })
 
 function get_vars(){
